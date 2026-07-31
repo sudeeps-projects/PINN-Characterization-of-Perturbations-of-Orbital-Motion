@@ -1,0 +1,101 @@
+{
+  "iss_fourier_vs_classical": {
+    "n": 145,
+    "mean_a": 2.996776124657032,
+    "mean_b": 14.41428364407,
+    "rmse_a": 5.683809383663129,
+    "rmse_b": 16.571526906311075,
+    "wilcoxon_stat": 404.0,
+    "wilcoxon_p": 2.486168891096969e-22,
+    "ttest_t": -15.689691869189128,
+    "ttest_p": 5.654558486569586e-33,
+    "cohens_dz": -1.3029579900341335,
+    "pct_timesteps_a_better": 91.0344827586207
+  },
+  "synth_fourier_vs_plain_full": {
+    "n": 2500,
+    "mean_a": 0.6641190089590409,
+    "mean_b": 7809.945194063928,
+    "rmse_a": 0.7302999014186983,
+    "rmse_b": 8568.384409813454,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_p": 0.0,
+    "ttest_t": -110.76453329407342,
+    "ttest_p": 0.0,
+    "cohens_dz": -2.215290665881468,
+    "pct_timesteps_a_better": 100.0
+  },
+  "synth_fourier_vs_plain_drop10pct": {
+    "n": 2250,
+    "mean_a": 0.6525201134365278,
+    "mean_b": 7729.982791674801,
+    "rmse_a": 0.7202555374557109,
+    "rmse_b": 8503.71971436194,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_p": 0.0,
+    "ttest_t": -103.42652116468005,
+    "ttest_p": 0.0,
+    "cohens_dz": -2.180422515653332,
+    "pct_timesteps_a_better": 100.0
+  },
+  "synth_fourier_vs_plain_trim_top10": {
+    "n": 2250,
+    "mean_a": 0.6685485198703021,
+    "mean_b": 7335.833148228404,
+    "rmse_a": 0.7363477363237572,
+    "rmse_b": 8085.057690113421,
+    "wilcoxon_stat": 0.0,
+    "wilcoxon_p": 0.0,
+    "ttest_t": -102.34031270674967,
+    "ttest_p": 0.0,
+    "cohens_dz": -2.157523230714671,
+    "pct_timesteps_a_better": 100.0
+  },
+  "warmup_segments": {
+    "0-10%": {
+      "plain_rmse": 9129.779467188191,
+      "four_rmse": 0.8151485183701611
+    },
+    "10-25%": {
+      "plain_rmse": 8154.621148092178,
+      "four_rmse": 0.8021954619609057
+    },
+    "25-50%": {
+      "plain_rmse": 8600.937599038758,
+      "four_rmse": 0.6818088001265342
+    },
+    "50-75%": {
+      "plain_rmse": 8536.02638395424,
+      "four_rmse": 0.6980896610482819
+    },
+    "75-100%": {
+      "plain_rmse": 8583.671319394112,
+      "four_rmse": 0.7271963777115353
+    }
+  },
+  "warmup_drop": {
+    "drop_0pct": {
+      "plain_rmse": 8568.384409813454,
+      "four_rmse": 0.7302999014186983
+    },
+    "drop_5pct": {
+      "plain_rmse": 8642.579789807583,
+      "four_rmse": 0.7217100266291954
+    },
+    "drop_10pct": {
+      "plain_rmse": 8503.71971436194,
+      "four_rmse": 0.7202555374557109
+    },
+    "drop_20pct": {
+      "plain_rmse": 8526.19217325574,
+      "four_rmse": 0.6889915848239245
+    },
+    "drop_30pct": {
+      "plain_rmse": 8634.859873212545,
+      "four_rmse": 0.70376183277972
+    }
+  },
+  "plain_frac_sqerr_first10pct": 11.353315051942111,
+  "plain_pct_timesteps_over_1000km": 99.68,
+  "classical_iss_rmse": 16.571526906311075
+}
