@@ -34,7 +34,10 @@ sci_y(ax); sci_x(ax); ax.legend()
 save(fig,"image1.png",3.6724,2.3853)
 
 # ---- Figure 2a: plain MLP synthetic reconstruction (image2) ----
-ts=S["truth_state"]; ob=S["obs_state_noisy"]; pp=S["plain_pred42"]
+ts=S["truth_state"]; ob=S["obs_state_noisy"]
+# Victoria round 5: plot the BEST TUNED plain MLP (width 256, depth 3, 5,000 epochs),
+# seed 42 - the same seed as the Fourier panel, so the two panels are comparable.
+pp=np.load(R+"/best_mlp_synth.npz")["pred42"]
 fig,ax=plt.subplots(constrained_layout=True)
 ax.plot(ts[:,0],ts[:,1],label="Dense truth")
 ax.plot(pp[:,0],pp[:,1],label="PINN reconstruction")
