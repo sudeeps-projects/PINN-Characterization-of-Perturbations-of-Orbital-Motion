@@ -1,4 +1,4 @@
-# PINN-Characterization-of-Pertrubations-of-Orbital-Motion
+# PINN-Characterization-of-Perturbations-of-Orbital-Motion
 
 ## Reproducing the results
 
