@@ -1,36 +1,5 @@
 # PINN-Characterization-of-Perturbations-of-Orbital-Motion
 
-## Reproducing the results
-
-```bash
-pip install -r requirements.txt
-cd code
-python synth_experiment.py      # synthetic branch, 5 seeds (plain MLP + Fourier PINN)
-python lsq_baseline.py          # equal-information batch least-squares comparator
-python iss_experiment.py        # ISS branch from CelesTrak TLE via SGP4
-python grid_refine.py           # classical drag estimator + observation-window sweep
-python phys_sweep.py            # physics-loss-weight sweep
-python warmup_5seeds.py         # warm-up / error-distribution check
-python plain_mlp_tuning.py      # plain-MLP diagnostic + hyperparameter sweep
-python best_mlp.py              # best tuned plain MLP over 5 seeds + ISS sweep
-python stats_tests.py           # Wilcoxon / paired t-test comparisons
-python make_figures.py          # regenerates Figures 1-6
-```
-
-| Path | Contents |
-|---|---|
-| `code/` | Scripts that regenerate every number, figure and table in the paper |
-| `notebooks/` | The four executed development notebooks |
-| `results/` | JSON metrics produced by the scripts above |
-| `figures/` | Figures 1-6 as submitted |
-
-Data generation uses a fixed seed of 42; the plain-MLP and Fourier-feature
-experiments are repeated over seeds 42-46 and reported as mean +/- SD.
-The ISS branch is a single run. Network training is CPU-only; the full
-synthetic sweep takes a few hours.
-
-
-
 ## Classical orbit determination outperforms physics-informed neural networks on sparse satellite tracking data
 
 Abstract
@@ -56,7 +25,7 @@ Pre-processing. The dense truth is down-sampled to every 35th state (72 sparse o
 Figure 1. Growth of the position residual relative to pure two-body motion over eight orbits. J₂ contributes ≈762 km of drift; adding the drag-like perturbation raises this to ≈2,944 km. The ≈2,180 km drag-induced difference is the secular signal that makes the hidden coefficient identifiable.
 
 
-   
+
 3.2 Real-data branch (authenticity)
 General-perturbations (GP) records for the International Space Station (NORAD catalog ID 25544) are downloaded live from CelesTrak [28]; for the runs reported here the TLE epoch is 18 June 2026, 19:14 UTC, with inclination 51.63°, eccentricity 4.67×10⁻⁴, mean motion 15.493 rev/day, and drag term B* = 1.54×10⁻⁴. The TLE is propagated with SGP4 [18] into Cartesian states (5-minute steps over 12 h, 145 dense states spanning altitudes of 412–424 km), then down-sampled to 25 sparse observations at 30-minute spacing with 200 m position and 0.2 m/s velocity noise. A caveat is stated throughout the project: TLE/SGP4 output is a real-data-derived benchmark, not raw measurement data, which is appropriate for a first study but should be replaced by raw tracking in future work. Figure 3 shows the propagated ISS altitude profile.
 
@@ -155,3 +124,33 @@ Zhou, X., Qiao, D., & Li, X. (2023). Adaptive Order-Switching Kalman Filter for 
 Habib, T. (2021). Replacement of In-Orbit Extended Kalman Filter for Spacecraft Orbit Estimation via Neural Networks. International Review of Automatic Control, 14(4). doi:10.15866/ireaco.v14i4.20948.
 Kelso, T. S. CelesTrak: Current GP Element Sets. https://celestrak.org (accessed 18 June 2026).
 Giorgini, J. D., et al. NASA/JPL Horizons On-Line Ephemeris System. https://ssd.jpl.nasa.gov/horizons (accessed 18 June 2026).
+
+
+## Reproducing the results
+
+```bash
+pip install -r requirements.txt
+cd code
+python synth_experiment.py      # synthetic branch, 5 seeds (plain MLP + Fourier PINN)
+python lsq_baseline.py          # equal-information batch least-squares comparator
+python iss_experiment.py        # ISS branch from CelesTrak TLE via SGP4
+python grid_refine.py           # classical drag estimator + observation-window sweep
+python phys_sweep.py            # physics-loss-weight sweep
+python warmup_5seeds.py         # warm-up / error-distribution check
+python plain_mlp_tuning.py      # plain-MLP diagnostic + hyperparameter sweep
+python best_mlp.py              # best tuned plain MLP over 5 seeds + ISS sweep
+python stats_tests.py           # Wilcoxon / paired t-test comparisons
+python make_figures.py          # regenerates Figures 1-6
+```
+
+| Path | Contents |
+|---|---|
+| `code/` | Scripts that regenerate every number, figure and table in the paper |
+| `notebooks/` | The four executed development notebooks |
+| `results/` | JSON metrics produced by the scripts above |
+| `figures/` | Figures 1-6 as submitted |
+
+Data generation uses a fixed seed of 42; the plain-MLP and Fourier-feature
+experiments are repeated over seeds 42-46 and reported as mean +/- SD.
+The ISS branch is a single run. Network training is CPU-only; the full
+synthetic sweep takes a few hours.
