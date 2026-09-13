@@ -1,0 +1,15 @@
+C:\Users\SURESH\Downloads\PINN\rerun\lsq_baseline.py:16: UserWarning: A NumPy version >=1.23.5 and <2.5.0 is required for this version of SciPy (detected version 2.5.1)
+  from scipy.integrate import solve_ivp
+=== SYNTHETIC: weighted batch LSQ, 5 noise draws ===
+  seed 42: posRMSE=  0.1305 km  velRMSE=  0.134 m/s  drag=3.2438e-05 ( 0.037%)  [ 21.0s, 20 evals]
+  seed 43: posRMSE=  0.2463 km  velRMSE=  0.252 m/s  drag=3.2430e-05 ( 0.062%)  [ 17.5s, 19 evals]
+  seed 44: posRMSE=  0.1684 km  velRMSE=  0.143 m/s  drag=3.2456e-05 ( 0.020%)  [ 29.1s, 21 evals]
+  seed 45: posRMSE=  0.1432 km  velRMSE=  0.154 m/s  drag=3.2436e-05 ( 0.043%)  [ 16.9s, 19 evals]
+  seed 46: posRMSE=  0.0576 km  velRMSE=  0.060 m/s  drag=3.2443e-05 ( 0.021%)  [ 21.7s, 21 evals]
+  SYNTH LSQ: pos 0.1492 ± 0.0610 km | vel 0.149 ± 0.061 m/s | drag err 0.0365 ± 0.0156 %   (Fourier PINN: 0.78 ± 0.03 km)
+
+=== ISS: dense 145, sparse 25 ===
+  ISS LSQ: posRMSE=0.1030 km  velRMSE=0.083 m/s  final=0.2135 km  B=2.6845e-03 (prior 5.2381e-03)  [38.6s, 20 evals]
+  (Fourier PINN ISS: 5.68 km / 8.0 m/s / final 1.44 km; old single-point baseline: 16.57 km)
+
+saved lsq_baseline.json
